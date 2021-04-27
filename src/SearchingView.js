@@ -3,19 +3,17 @@ import { AgGridReact } from "ag-grid-react";
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
-const  InputBar = () => {
+const  SearchingView = () => {
     const [ isLoading, setIsLoading ] = useState( false );
     const [ userName, setUserName ] = useState( null );
     const [ gridApi, setGridApi ] = useState( null );
     const [ gridColumnApi, setGridColumnApi ] = useState( null );
-    const [ errorMessage, setErrorMessage ] = useState( 0 );
     const [ rowData, setRowData ] = useState([ ]);
     const [columnDefs, setColumnDefs] = useState([
         { headerName: "Name", field: "name", sortable: true },
         { headerName: "Language", field: "language", sortable: true },
         { headerName: "Fork Count", field: "fork_count", sortable: true }
     ])
-
 
     const onGridReady = params => {
         setGridApi( params.api );
@@ -49,7 +47,6 @@ const  InputBar = () => {
         </div>
     )
 
-
     return (
         <div>
             <h1>Displays a given user's public repositories</h1>
@@ -59,8 +56,7 @@ const  InputBar = () => {
             </form>
             { isLoading ? "loading..." : display }
         </div>
-
     );
 }
 
-export default InputBar;
+export default SearchingView;
